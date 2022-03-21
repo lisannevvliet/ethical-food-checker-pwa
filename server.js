@@ -15,6 +15,6 @@ app.listen(8080)
 
 // *** GET Routes - display pages. ***
 // Root Route.
-app.get('/', function (req, res) {
-    res.render('pages/index')
+app.get('/', function (_req, res) {
+    res.render('index')
 })
