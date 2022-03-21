@@ -1,6 +1,6 @@
 // Load Node.js modules.
 var express = require('express')
-const ejs = require('ejs');
+const ejs = require('ejs')
 
 // Initialise Express.
 var app = express()
@@ -17,5 +17,5 @@ app.listen(8080, ()=> console.log(`Shark app listening on port 8080!`))
 // *** GET Routes - display pages ***
 // Root Route
 app.get('/', function (req, res) {
-    res.render('pages/index');
+    res.render('pages/index')
 })
