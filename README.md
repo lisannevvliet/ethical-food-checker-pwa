@@ -17,3 +17,6 @@
 ### Exercise 1-2
 - Install Nodemon (https://www.digitalocean.com/community/tutorials/workflow-nodemon).
 - Change "start": "node server.js" to "start": "nodemon server.js" in package.json.
+
+- Install EJS (npm install ejs --save)
+- Update package.json and rename the HTML files to EJS (https://www.section.io/engineering-education/static-site-dynamic-nodejs-web-app/).
