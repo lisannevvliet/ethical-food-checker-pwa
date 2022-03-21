@@ -1,6 +1,5 @@
-// Load Node.js modules.
+// Load Express.
 var express = require('express')
-const ejs = require('ejs')
 
 // Initialise Express.
 var app = express()
@@ -11,11 +10,11 @@ app.use(express.static('public'))
 // Set the view engine to EJS.
 app.set('view engine', 'ejs')
 
-// Port website will run on.
-app.listen(8080, ()=> console.log(`Shark app listening on port 8080!`))
+// Set the port the website will run on.
+app.listen(8080)
 
-// *** GET Routes - display pages ***
-// Root Route
+// *** GET Routes - display pages. ***
+// Root Route.
 app.get('/', function (req, res) {
     res.render('pages/index')
 })
