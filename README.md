@@ -13,6 +13,8 @@
 - Navigate to destination folder (cd /Users/lisannevanvliet/Documents/HvA/Jaar\ 3/Semester\ 2/Progressive\ Web\ Apps).
 - Install Express (npm install express).
 - Start the local server: http://localhost:8080/index.html (npm start).
+- Install EJS (npm install ejs --save).
+- Update package.json and rename the HTML files to EJS.
 
 ### Exercise 1-2
 - Install Nodemon (https://www.digitalocean.com/community/tutorials/workflow-nodemon).
