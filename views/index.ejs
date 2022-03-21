@@ -37,7 +37,19 @@
             <button class="add_date">Recently added</button>
             <button class="edit_date">Recently edited</button>
         </div>
-        <ul></ul>
+        <ul>
+            <% data.forEach(function(product) { %>
+                <li>
+                    <div id="product">
+                    <div id="frame">
+                        <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder-image.png' %> alt=<%= product.product_name %>>
+                    </div>
+                    <span><span id="name"><%= product.product_name %></span>
+                    <p><%= product.ingredients_analysis_tags %> <%= product.ecoscore_grade %></p><span>
+                    <p><%= product.ingredients_text %></p>
+                </li>
+             <% }); %> 
+        </ul>
         <button class="more">More</button>
         <p class="instructions">Search for a product using the search bar above.</p>
         <div class="loader"></div>
