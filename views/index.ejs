@@ -42,20 +42,36 @@
                 <li>
                     <div id="product">
                         <div id="frame">
+                            <!-- Add the image if there is any. If not, use the placeholder. -->
                             <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder-image.png' %> alt=<%= product.product_name %>>
                         </div>
+
                         <span><span id="name"><%= product.product_name %></span>
+
+                        <!-- Empty list, to which the emojis will be added. -->
                         <% let emojis = [] %>
+
+                        <!-- Check if there are any ingredients analysis tags. -->
                         <% if (product.ingredients_analysis_tags) { %>
+                            <!-- If the product is vegetarian, add the corresponding emoji. -->
                             <% if (product.ingredients_analysis_tags[2] == "en:vegetarian") { emojis.push(`<div id="tooltip">🐄<span>Vegetarian</span></div>`) } %>
+                            <!-- If the product is vegan, add the corresponding emoji. -->
                             <% if (product.ingredients_analysis_tags[1] == "en:vegan") { emojis.push(`<div id="tooltip">🌱<span>Vegan</span></div>`) } %>
+                            <!-- If the product is free from palm oil, add the corresponding emoji. -->
                             <% if (product.ingredients_analysis_tags[0] == "en:palm-oil-free") { emojis.push(`<div id="tooltip">🌴<span>Palm oil free</span></div>`) } %>
                         <% } %>
+
+                        <!-- Merge the emojis into one string. -->
                         <% emojis = emojis.join(" ") %>
+
                         <p><%- emojis %>
+
+                        <!-- If the Eco-Score is known, add the corresponding image. -->
                         <% if (product.ecoscore_grade != "unknown") { %>
                             <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
                         <% } %></p><span>
+                            
+                        <!-- Add the ingredients if there are any. -->
                         <% if (product.ingredients_text) { %>
                             <p><details><summary>Ingredients</summary>
                             <p><%= product.ingredients_text %></p></details></p>
