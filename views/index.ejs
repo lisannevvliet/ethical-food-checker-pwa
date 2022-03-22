@@ -41,15 +41,26 @@
             <% data.forEach(function(product) { %>
                 <li>
                     <div id="product">
-                    <div id="frame">
-                        <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder-image.png' %> alt=<%= product.product_name %>>
+                        <div id="frame">
+                            <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder-image.png' %> alt=<%= product.product_name %>>
+                        </div>
+                        <span><span id="name"><%= product.product_name %></span>
+                        <% let emojis = [] %>
+                        <% if (product.ingredients_analysis_tags) { %>
+                            <% if (product.ingredients_analysis_tags[2] == "en:vegetarian") { emojis.push(`<div id="tooltip">🐄<span>Vegetarian</span></div>`) } %>
+                            <% if (product.ingredients_analysis_tags[1] == "en:vegan") { emojis.push(`<div id="tooltip">🌱<span>Vegan</span></div>`) } %>
+                            <% if (product.ingredients_analysis_tags[0] == "en:palm-oil-free") { emojis.push(`<div id="tooltip">🌴<span>Palm oil free</span></div>`) } %>
+                        <% } %>
+                        <% emojis = emojis.join(" ") %>
+                        <p><%- emojis %>
+                        <% if (product.ecoscore_grade != "unknown") { %>
+                            <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
+                        <% } %></p><span>
+                        <% if (product.ingredients_text) { %>
+                            <p><details><summary>Ingredients</summary>
+                            <p><%= product.ingredients_text %></p></details></p>
+                        <% } %>
                     </div>
-                    <span><span id="name"><%= product.product_name %></span>
-                    <p><%= product.ingredients_analysis_tags %>
-                    <% if (product.ecoscore_grade != "unknown") { %>
-                        <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
-                    <% } %>
-                    <p><%= product.ingredients_text %></p>
                 </li>
              <% }) %>
         </ul>
