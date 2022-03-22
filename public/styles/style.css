@@ -1,0 +1,472 @@
+@font-face {
+    font-family: "Playlist Script";
+    src: url("../fonts/Playlist Script.otf");
+}
+
+@font-face {
+    font-family: "Lato Regular";
+    src: url("../fonts/Lato-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Lato Bold";
+    src: url("../fonts/Lato-Bold.ttf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lato Regular, system-ui;
+    background: url("../images/rm422-047.jpg") #eaf3e4 no-repeat fixed center;
+    background-size: cover;
+}
+
+h1 {
+    font-family: Playlist Script, system-ui;
+    font-size: 3em;
+    text-align: center;
+    cursor: pointer;
+}
+
+#explanation {
+    color: black;
+    font-size: 1em;
+    background: #d3eacd;
+    transition: background 0.3s ease-in-out;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #c0d5ba;
+    border-right: 1px solid #c0d5ba;
+    border-radius: 0 5px 0 0;
+    cursor: pointer;
+}
+
+#explanation:hover {
+    background: #c0d5ba;
+    transition: background 0.3s ease-in-out;
+}
+
+section {
+    background: white;
+    border: 1px solid #d3eacd;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 10;
+    width: 90vw;
+}
+
+section button {
+    font-size: 1.5em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 15px;
+    padding-right: 15px;
+    color: black;
+    transition: background 0.3s ease-in-out;
+}
+
+section button:hover {
+    color: #555555;
+    transition: background 0.3s ease-in-out;
+}
+
+section span {
+    font-size: 1.4em;
+}
+
+h2 {
+    font-family: Playlist Script, system-ui;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+section p {
+    text-align: center;
+    margin: 20px;
+}
+
+section a {
+    color: black;
+}
+
+section a:hover {
+    color: #555555;
+}
+
+form, .instructions {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+form {
+    position: sticky;
+    top: 0;
+    width: 90vw;
+    margin: 0 auto;
+    z-index: 9;
+}
+
+form input {
+    flex-grow: 1;
+    width: 37%;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+    background-image: url("../images/search.png");
+    background-position: 13px 16px; 
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding: 12px 20px 12px 40px;
+}
+
+form input:focus {
+    outline-color: #63b776;
+}
+
+.barcode {
+    display: none;
+    cursor: pointer;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #d3eacd;
+    transition: background 0.3s ease-in-out;
+}
+
+.barcode:hover {
+    background: #c0d5ba;
+    transition: background 0.3s ease-in-out;
+}
+
+form button img {
+    height: 25px;
+}
+
+form button[type="submit"] {
+    position: sticky;
+    color: white;
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    font-size: 1em;
+    background: #63b776;
+    transition: background 0.3s ease-in-out;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    padding: 16px 32px;
+}
+
+form button[type="submit"]:hover {
+    background: #5aa66b;
+    transition: background 0.3s ease-in-out;
+}
+
+video {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 90vw;
+    border-radius: 5px;
+}
+
+.sort {
+    display: none;
+    justify-content: center;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 5px;
+    flex-flow: row wrap;
+}
+
+.sort button {
+    color: white;
+    font-size: 1em;
+    background: #9ac383;
+    transition: background 0.3s ease-in-out;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 13px;
+    margin: 5px;
+    white-space: nowrap;
+}
+
+.sort button:hover {
+    background: #749262;
+    transition: background 0.3s ease-in-out;
+}
+
+.sort .popularity {
+    background: #749262;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 25px;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+}
+
+#product {
+    color: black;
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
+    width: 90vw;
+    background: #ffffffbf;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+#frame {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+#frame img {
+    max-height: 100px;
+    max-width: 100px;
+    margin: auto;
+    transition: transform 0.2s;
+}
+
+span {
+    margin: 0 auto;
+}
+
+#name {
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    font-size: 1.1em;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    line-height: 0em;
+}
+
+#tooltip {
+    font-size: 1.4em;
+    position: relative;
+    display: inline;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#tooltip span {
+    visibility: hidden;
+    width: 100px;
+    background: #000000bf;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 2.5px 0;
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    margin-left: -50px;
+}
+
+#tooltip span::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #000000bf transparent transparent transparent;
+}
+
+#tooltip:hover span {
+    visibility: visible;
+}
+
+#ecoscore {
+    position: relative;
+    height: 25px;
+    bottom: -4px;
+}
+
+#product details summary {
+    cursor: pointer;
+}
+
+#product details[open] summary {
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+}
+
+#product details p {
+    line-height: 1;
+    margin: 0 auto;
+    margin-top: 5px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.more {
+    display: none;
+    margin: 0 auto;
+    color: white;
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    font-size: 1em;
+    background: #63b776;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 26px;
+    margin-bottom: 25px;
+}
+
+.more:hover {
+    background: #5aa66b;
+}
+
+.instructions {
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    line-height: 1.5;
+    margin-top: 25px;
+}
+
+.loader {
+    border: 6px solid #63b776;
+    border-radius: 50%;
+    border-top: 6px solid white;
+    width: 45px;
+    height: 45px;
+    animation: spin 2s linear infinite;
+    margin-block-start: 1em;
+    margin-inline-start: 1em;
+    display: none;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.sort button.darkgreen {
+    background: #749262;
+}
+
+.sort button.lightgreen {
+    background: #9ac383;
+}
+
+/* Laptop */
+@media only screen and (min-width: 1024px) {
+    h1 {
+        font-size: 4em;
+    }
+
+    form {
+        width: 70vw;
+    }
+
+    video {
+        width: 70vw;
+    }
+
+    .sort {
+        width: 70vw;
+    }
+
+    #product {
+        line-height: 2;
+        width: 70vw;
+    }
+
+    #product p {
+        margin: 0;
+    }
+
+    #frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #frame img {
+        max-height: 150px;
+        max-width: 150px;
+    }
+
+    #tooltip span {
+        padding: 0;
+    }
+
+    section {
+        width: auto;
+    }
+}
+
+/* Laptop L */
+@media only screen and (min-width: 1440px) {
+    form {
+        width: 50vw;
+    }
+
+    #product {
+        width: 50vw;
+    }
+
+    video {
+        width: 50vw;
+    }
+
+    .sort {
+        width: 50vw;
+    }
+
+    #frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #frame img {
+        max-height: 150px;
+        max-width: 150px;
+    }
+}
