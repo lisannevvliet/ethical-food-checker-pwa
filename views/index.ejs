@@ -45,10 +45,13 @@
                         <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder-image.png' %> alt=<%= product.product_name %>>
                     </div>
                     <span><span id="name"><%= product.product_name %></span>
-                    <p><%= product.ingredients_analysis_tags %> <%= product.ecoscore_grade %></p><span>
+                    <p><%= product.ingredients_analysis_tags %>
+                    <% if (product.ecoscore_grade != "unknown") { %>
+                        <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
+                    <% } %>
                     <p><%= product.ingredients_text %></p>
                 </li>
-             <% }); %> 
+             <% }) %>
         </ul>
         <button class="more">More</button>
         <p class="instructions">Search for a product using the search bar above.</p>
