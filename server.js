@@ -25,5 +25,9 @@ app.get('/search', async function (req, res) {
     const response = await fetch(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.q}&search_simple=1&action=process&json=1&page=1`)
     const data = await response.json()
 
-    res.render('index', { query: req.query.q, products: data.products })
+    if (data.products == 0) {
+        res.render('error', { query: req.query.q })
+    } else {
+        res.render('index', { query: req.query.q, products: data.products })
+    }
 })
