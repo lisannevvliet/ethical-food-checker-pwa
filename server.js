@@ -17,7 +17,7 @@ app.listen(8080)
 // *** GET Routes - display pages. ***
 // Root Route.
 app.get('/', async function (_req, res) {
-    res.render('index', { query: "" })
+    res.render('index')
 })
 
 app.get('/search', async function (req, res) {
@@ -26,8 +26,10 @@ app.get('/search', async function (req, res) {
     const data = await response.json()
 
     if (data.products == 0) {
-        res.render('error', { query: req.query.q })
+        // Find out if the search query is a product name or barcode.
+        let type = /^\d+$/.test(req.query.q) ? "barcode" : "name"
+        res.render('error', { query: req.query.q, type: type })
     } else {
-        res.render('index', { query: req.query.q, products: data.products })
+        res.render('results', { query: req.query.q, products: data.products })
     }
 })

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethical Food Checker</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <a href="/"><h1>Ethical<br>Food Checker</h1></a>
+        <button id="explanation">Explanation</button>
+        <section>
+            <button aria-label="Close">&#10007;</button>
+            <h2>Explanation</h2>
+            <p>
+                <span>🐄</span><br>
+                Vegetarian means no meat.<br>
+                Eating vegetarian reduces your carbon footprint by 32%.<br><br>
+                <span>🌱</span><br>
+                Vegan means no animal products.<br>
+                Eating vegan reduces your carbon footprint by 48%.<br><br>
+                <span>🌴</span><br>
+                Palm oil free shopping helps prevent deforestation in the tropics.<br><br>
+                <img src="https://static.openfoodfacts.org/images/icons/ecoscore-unknown.svg" alt="Eco-Score: unknown" id="ecoscore"><br>
+                Eco-Score is an environmental score from A to E, which summarizes 15 environmental impacts.<br><br>
+                <a href="https://www.vox.com/2014/7/2/5865109/study-going-vegetarian-could-cut-your-food-carbon-footprint-in-half" target="_blank">Source</a></p>
+        </section>
+        <form method="get" action="/search">
+            <!-- Fill the search bar with the query. -->
+            <input type="search" name="q" value="<%= query %>" placeholder="Name or barcode" aria-label="Name or barcode" required>
+            <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
+            <button type="submit">Search</button>
+        </form>
+        <div class="sort">
+            <button class="popularity">Popularity</button>
+            <button class="product_name">Product name</button>
+            <button class="add_date">Recently added</button>
+            <button class="edit_date">Recently edited</button>
+        </div>
+        <ul>
+            <% products.forEach(function(product) { %>
+                <% if (product.product_name != "") { %>
+                    <li>
+                        <div id="product">
+                            <div id="frame">
+                                <!-- Add the image if there is any. If not, use the placeholder. -->
+                                <img src=<%= product.image_small_url ? product.image_small_url : '../images/placeholder.png' %> alt=<%= product.product_name %>>
+                            </div>
+                            <span><span id="name"><%= product.product_name %></span>
+                            <!-- Empty list, to which the emojis will be added. -->
+                            <% let emojis = [] %>
+                            <!-- Check if there are any ingredients analysis tags. -->
+                            <% if (product.ingredients_analysis_tags) { %>
+                                <!-- If the product is vegetarian, add the corresponding emoji. -->
+                                <% if (product.ingredients_analysis_tags[2] == "en:vegetarian") { emojis.push(`<div id="tooltip">🐄<span>Vegetarian</span></div>`) } %>
+                                <!-- If the product is vegan, add the corresponding emoji. -->
+                                <% if (product.ingredients_analysis_tags[1] == "en:vegan") { emojis.push(`<div id="tooltip">🌱<span>Vegan</span></div>`) } %>
+                                <!-- If the product is free from palm oil, add the corresponding emoji. -->
+                                <% if (product.ingredients_analysis_tags[0] == "en:palm-oil-free") { emojis.push(`<div id="tooltip">🌴<span>Palm oil free</span></div>`) } %>
+                            <% } %>
+                            <!-- Merge the emojis into one string. -->
+                            <% emojis = emojis.join(" ") %>
+                            <p><%- emojis %>
+                            <!-- If the Eco-Score is known, add the corresponding image. -->
+                            <% if (product.ecoscore_grade != "unknown") { %>
+                                <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
+                            <% } %></p><span>
+                            <!-- Add the ingredients if there are any. -->
+                            <% if (product.ingredients_text) { %>
+                                <p><details><summary>Ingredients</summary>
+                                <p><%= product.ingredients_text %></p></details></p>
+                            <% } %>
+                        </div>
+                    </li>
+                <% } %>
+            <% }) %>
+        </ul>
+        <button class="more">More</button>
+        <div class="loader"></div>
+    </body>
+</html>

@@ -4,12 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ethical Food Checker</title>
         <link rel="stylesheet" href="styles/style.css">
-        <!-- <script type="module" src="scripts/main.js"></script> -->
     </head>
     <body>
-        <!-- Instructions for the empty state. -->
-        <% let instructions = "Search for a product using the search bar above." %>
-        <a href="/" id="title"><h1>Ethical<br>Food Checker</h1></a>
+        <a href="/"><h1>Ethical<br>Food Checker</h1></a>
         <button id="explanation">Explanation</button>
         <section>
             <button aria-label="Close">&#10007;</button>
@@ -33,8 +30,6 @@
             <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
             <button type="submit">Search</button>
         </form>
-        
-        <p class="instructions">"No products were found for '<%= query %>'. Please try again."</p>
-        <div class="loader"></div>
+        <p class="instructions">No products were found with the <%= type %> "<%= query %>". Please try again.</p>
     </body>
 </html>
