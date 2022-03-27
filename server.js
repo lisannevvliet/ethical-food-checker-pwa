@@ -27,7 +27,7 @@ app.get('/search', async function (req, res) {
 
     if (data.products == 0) {
         // Find out if the search query is a product name or barcode.
-        let type = /^\d+$/.test(req.query.q) ? "barcode" : "name"
+        let type = /^\d+$/.test(req.query.q) ? 'barcode' : 'name'
         res.render('error', { query: req.query.q, type: type })
     } else {
         res.render('results', { query: req.query.q, products: data.products })
