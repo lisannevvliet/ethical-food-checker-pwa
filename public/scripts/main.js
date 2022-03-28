@@ -3,16 +3,6 @@ import { get } from "./modules/get.js"
 import { detect } from "./modules/detect.js"
 import "./modules/vendor/routie.min.js"
 
-// Get the products from the API when the hash changes.
-routie ({
-    ":hash": hash => {
-        get(true, "", hash)
-
-        // Fill the search query with the hash (name or barcode).
-        $('form input').value = window.location.hash.substring(1)
-    }
-})
-
 // Only show the barcode button if the BarcodeDetector is supported.
 if ("BarcodeDetector" in window) {
     $(".barcode").classList.add("block")
