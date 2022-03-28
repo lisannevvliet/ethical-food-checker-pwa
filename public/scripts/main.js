@@ -13,16 +13,6 @@ routie ({
     }
 })
 
-// If the explanation is clicked, show the section.
-$("#explanation").addEventListener("click", function() {
-    $("section").classList.add("block")
-})
-
-// If the explanation is closed, hide the section.
-$("section button").addEventListener("click", function() {
-    $("section").classList.remove("block")
-})
-
 // Only show the barcode button if the BarcodeDetector is supported.
 if ("BarcodeDetector" in window) {
     $(".barcode").classList.add("block")
@@ -33,21 +23,8 @@ $(".barcode").addEventListener("click", function() {
     detect()
 })
 
-// If the title is clicked, show the homepage.
-$("#title").addEventListener("click", function() {
-    window.location.hash = ""
-    location.reload()
-})
-
-$("form").addEventListener("submit", function(event) {
-    window.location.hash = $("input").value
-
-    // Close the keyboard after submit.
-    document.activeElement.blur()
-
-    // Prevent the page from reloading.
-    event.preventDefault()
-})
+// Close the keyboard after submit.
+document.activeElement.blur()
 
 // EventListeners for sort options.
 $(".popularity").addEventListener("click", function() {
