@@ -381,6 +381,10 @@ span {
     100% { transform: rotate(360deg); }
 }
 
+.block {
+    display: block;
+}
+
 .sort button.darkgreen {
     background: #749262;
 }
