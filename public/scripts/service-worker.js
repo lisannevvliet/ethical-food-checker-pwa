@@ -1,5 +1,5 @@
 const CORE = 'core-cache';
-// (Images nog toevoegen.)
+// Incomplete.
 const CORE_FILES = [
     '/styles/style.css',
     '/scripts/script.js',
