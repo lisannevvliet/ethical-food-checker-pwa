@@ -74,7 +74,10 @@
                 <% } %>
             <% }) %>
         </ul>
-        <button class="more">More</button>
+        <!-- If there are more pages, show the "More" button. -->
+        <% if (more) { %>
+            <button class="more">More</button>
+        <% } %>
         <div class="loader"></div>
         <script src="scripts/script.js"></script>
     </body>
