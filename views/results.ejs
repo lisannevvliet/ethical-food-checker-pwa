@@ -26,7 +26,7 @@
         </section>
         <form method="get" action="/search">
             <!-- Fill the search bar with the query. -->
-            <input type="search" name="q" value="<%= query %>" placeholder="Name or barcode" aria-label="Name or barcode" required>
+            <input type="text" name="q" value="<%= query %>" placeholder="Name or barcode" aria-label="Name or barcode" onClick="this.setSelectionRange(0, this.value.length)" required>
             <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
             <button type="submit">Search</button>
         </form>

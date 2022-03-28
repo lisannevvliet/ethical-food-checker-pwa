@@ -25,7 +25,7 @@
                 <a href="https://www.vox.com/2014/7/2/5865109/study-going-vegetarian-could-cut-your-food-carbon-footprint-in-half" target="_blank">Source</a></p>
         </section>
         <form method="get" action="/search">
-            <input type="search" name="q" placeholder="Name or barcode" aria-label="Name or barcode" required>
+            <input type="text" name="q" placeholder="Name or barcode" aria-label="Name or barcode" onClick="this.setSelectionRange(0, this.value.length)" required>
             <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
             <button type="submit">Search</button>
         </form>
