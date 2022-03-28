@@ -21,8 +21,13 @@ app.get('/', async function (_req, res) {
 })
 
 app.get('/search', async function (req, res) {
+    // Save the correct URL based on if the search query is a barcode or not.
+    let url = /^\d+$/.test(req.query.q)
+    ? `https://world.openfoodfacts.org/cgi/search.pl?code=${req.query.q}&search_simple=1&action=process&json=1&page=1`
+    : `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.q}&search_simple=1&action=process&json=1&page=1`
+
     // Get the products from the API.
-    const response = await fetch(`https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.q}&search_simple=1&action=process&json=1&page=1`)
+    const response = await fetch(url)
     const data = await response.json()
 
     if (data.products == 0) {

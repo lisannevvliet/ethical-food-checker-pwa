@@ -190,7 +190,7 @@ video {
 }
 
 .sort {
-    display: none;
+    display: flex;
     justify-content: center;
     width: 90vw;
     margin: 0 auto;
@@ -336,7 +336,7 @@ span {
 }
 
 .more {
-    display: none;
+    display: block;
     margin: 0 auto;
     color: white;
     font-weight: bold;
@@ -379,18 +379,6 @@ span {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.block {
-    display: block;
-}
-
-.none {
-    display: none;
-}
-
-.flex {
-    display: flex;
 }
 
 .sort button.darkgreen {
