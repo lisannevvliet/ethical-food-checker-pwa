@@ -65,7 +65,7 @@
         // } else {
         //     $(".instructions").textContent = `All products with the ${type} "${$("input").value}" are already shown.`
         // }
-    }
+    // }
 
     // Hide the loader once the data is fetched.
     // $(".loader").classList.remove("block")
