@@ -30,7 +30,7 @@ self.addEventListener('activate', function(_event) {
 
 self.addEventListener('fetch', function(event) {
     const url = new URL(event.request.url)
-    // Retrieve the supportive cashed files.
+    // Check if any of the requested files already exists in the core-cache.
     if (event.request.method === 'GET' && CORE_FILES.includes(url.pathname)) {
         event.respondWith(
             caches.open('core-cache')
