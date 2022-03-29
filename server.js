@@ -16,7 +16,7 @@ app.listen(8080)
 
 // *** GET Routes - display pages. ***
 // Root Route.
-app.get('/', async function (_req, res) {
+app.get('/', function (_req, res) {
     res.render('index')
 })
 
@@ -41,4 +41,8 @@ app.get('/search', async function (req, res) {
         const more = (data.page <= (data.count / data.page_size)) ? true : false
         res.render('results', { query: req.query.q, products: data.products, more: more })
     }
+})
+
+app.get('/offline', function (_req, res) {
+    res.render('offline')
 })

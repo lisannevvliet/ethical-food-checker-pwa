@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ethical Food Checker</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="manifest" href="/manifest.json">
+    </head>
+    <body>
+        <a href="/"><h1>Ethical<br>Food Checker</h1></a>
+        <button id="explanation">Explanation</button>
+        <section>
+            <button aria-label="Close">&#10007;</button>
+            <h2>Explanation</h2>
+            <p>
+                <span>🐄</span><br>
+                Vegetarian means no meat.<br>
+                Eating vegetarian reduces your carbon footprint by 32%.<br><br>
+                <span>🌱</span><br>
+                Vegan means no animal products.<br>
+                Eating vegan reduces your carbon footprint by 48%.<br><br>
+                <span>🌴</span><br>
+                Palm oil free shopping helps prevent deforestation in the tropics.<br><br>
+                <img src="https://static.openfoodfacts.org/images/icons/ecoscore-unknown.svg" alt="Eco-Score: unknown" id="ecoscore"><br>
+                Eco-Score is an environmental score from A to E, which summarizes 15 environmental impacts.<br><br>
+                <a href="https://www.vox.com/2014/7/2/5865109/study-going-vegetarian-could-cut-your-food-carbon-footprint-in-half" target="_blank">Source</a></p>
+        </section>
+        <form method="get" action="/search">
+            <!-- Fill the search bar with the query. -->
+            <input type="text" name="q" placeholder="Name or barcode" aria-label="Name or barcode" onClick="this.setSelectionRange(0, this.value.length)" required>
+            <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
+            <button type="submit">Search</button>
+        </form>
+        <p class="instructions">No internet. Please fix your connection and try again..</p>
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
