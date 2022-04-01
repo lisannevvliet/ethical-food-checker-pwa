@@ -1,9 +1,10 @@
-// Load Node.js modules.
+// Import Express.
 import express from 'express'
+// Import node-fetch.
 import fetch from 'node-fetch'
 
 // Initialise Express.
-var app = express()
+const app = express()
 
 // Render static files.
 app.use(express.static('public'))
@@ -11,15 +12,15 @@ app.use(express.static('public'))
 // Set the view engine to EJS.
 app.set('view engine', 'ejs')
 
-// Set the port the website will run on.
+// Set the port for Express.
 app.listen(8080)
 
-// *** GET Routes - display pages. ***
-// Root Route.
+// Listen to all GET requests on /.
 app.get('/', function (_req, res) {
     res.render('index')
 })
 
+// Listen to all GET requests on /search.
 app.get('/search', async function (req, res) {
     // Boolean which shows if the search query is a barcode.
     const barcode = /^\d+$/.test(req.query.q)
@@ -43,6 +44,7 @@ app.get('/search', async function (req, res) {
     }
 })
 
+// Listen to all GET requests on /offline.
 app.get('/offline', function (_req, res) {
     res.render('offline')
 })
