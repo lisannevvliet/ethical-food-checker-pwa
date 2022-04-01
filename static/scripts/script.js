@@ -1,3 +1,16 @@
+// If supported, install the service worker.
+if ("serviceWorker" in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register("service-worker.js")
+            .then(function(registration) {
+                return registration.update()
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    })
+}
+
 // Return the Element object of the corresponding element.
 function $(element) {
     return document.querySelector(element)
@@ -12,15 +25,3 @@ $("#explanation").addEventListener("click", function() {
 $("section button").addEventListener("click", function() {
     $("section").classList.remove("block")
 })
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(function(registration) {
-                return registration.update()
-            })
-            .catch(function(error) {
-                console.log(error)
-            })
-    })
-}
