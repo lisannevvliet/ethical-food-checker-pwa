@@ -4,7 +4,6 @@
 - [Documentation](#documentation)
   * [Exercise 1-1](#exercise-1-1)
   * [Exercise 1-2](#exercise-1-2)
-- [To-do](#to-do)
 
 ## Documentation
 
@@ -23,6 +22,3 @@
 - Install EJS (npm install ejs --save).
 - Update package.json and rename the HTML files to EJS.
 - Install and implement node-fetch (npm install node-fetch).
-
-## To-do
-Included are an explanation of client- server rendering, an activity diagram including the Service Worker and a list of enhancements to optimize the critical render path implemented your app.
