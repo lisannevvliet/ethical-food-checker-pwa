@@ -7,7 +7,7 @@ import fetch from 'node-fetch'
 const app = express()
 
 // Render static files.
-app.use(express.static('public'))
+app.use(express.static('static'))
 
 // Set the view engine to EJS.
 app.set('view engine', 'ejs')
