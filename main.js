@@ -26,8 +26,8 @@ app.get('/search', async function (req, res) {
     const barcode = /^\d+$/.test(req.query.q)
 
     // Save the correct URL based on if the search query is a barcode or not.
-    const url = barcode ? `https://world.openfoodfacts.org/cgi/search.pl?code=${req.query.q}&search_simple=1&action=process&json=1&page=1`
-    : `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.q}&search_simple=1&action=process&json=1&page=1`
+    const url = barcode ? `https://world.openfoodfacts.org/cgi/search.pl?code=${req.query.q}&search_simple=1&action=process&json=1&page=${req.query.p}`
+    : `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${req.query.q}&search_simple=1&action=process&json=1&page=${req.query.p}`
 
     // Get the products from the API.
     const response = await fetch(url)
@@ -40,7 +40,7 @@ app.get('/search', async function (req, res) {
     } else {
         // Determine if there are more pages.
         const more = (data.page <= (data.count / data.page_size)) ? true : false
-        res.render('results', { query: req.query.q, products: data.products, more: more })
+        res.render('results', { query: req.query.q, products: data.products, more: more, page: data.page })
     }
 })
 
