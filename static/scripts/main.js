@@ -1,7 +1,6 @@
 import { $ } from "./modules/$.js"
 import { get } from "./modules/get.js"
 import { detect } from "./modules/detect.js"
-import "./modules/vendor/routie.min.js"
 
 // Only show the barcode button if the BarcodeDetector is supported.
 if ("BarcodeDetector" in window) {
@@ -12,9 +11,6 @@ if ("BarcodeDetector" in window) {
 $(".barcode").addEventListener("click", function() {
     detect()
 })
-
-// Close the keyboard after submit.
-document.activeElement.blur()
 
 // EventListeners for sort options.
 $(".popularity").addEventListener("click", function() {
