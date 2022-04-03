@@ -5,7 +5,7 @@ function $(element) {
 
 // If supported, install the service worker.
 if ("serviceWorker" in navigator) {
-    window.addEventListener('load', function() {
+    window.addEventListener("load", function() {
         navigator.serviceWorker.register("service-worker.js")
             .then(function(registration) {
                 return registration.update()
@@ -17,7 +17,7 @@ if ("serviceWorker" in navigator) {
         // If the offline page is shown, fill the search bar with the query.
         if ($(".instructions a")) {
             const url = new URL(window.location.href)
-            $("form input[type=\"text\"]").value = url.searchParams.get('q')
+            $("form input[type=\"text\"]").value = url.searchParams.get("q")
         }
     })
 }
