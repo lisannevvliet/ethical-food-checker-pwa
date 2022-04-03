@@ -29,14 +29,9 @@
             <!-- Fill the search bar with the query. -->
             <input type="text" name="q" value="<%= query %>" placeholder="Name or barcode" aria-label="Name or barcode" onClick="this.setSelectionRange(0, this.value.length)" required>
             <button type="button" aria-label="Barcode" class="barcode"><img src="./images/barcode.png" alt="Barcode"></img></button>
+            <input type="hidden" name="p" value="1">
             <button type="submit">Search</button>
         </form>
-        <div class="sort">
-            <button class="popularity">Popularity</button>
-            <button class="product_name">Product name</button>
-            <button class="add_date">Recently added</button>
-            <button class="edit_date">Recently edited</button>
-        </div>
         <ul>
             <% products.forEach(function(product) { %>
                 <% if (product.product_name != "") { %>
@@ -75,17 +70,18 @@
                 <% } %>
             <% }) %>
         </ul>
-        <!-- If there are more pages, show the "More" button. -->
-        <% if (more) { %>
-            <button class="more">More</button>
+        <!-- If there are more pages, show the pagination. -->
+        <% if (pages != 1) { %>
             <!-- Input field for the pagination. -->
             <form method="get" action="/search">
                 <input type="hidden" name="q" value="<%= query %>">
-                <input type="number" name="p" value="<%= page %>" required>
+                <div>
+                    <label for="page">Page</label>
+                    <input type="number" id="page" name="p" value="<%= page %>" min="1" max="<%= pages %>" onClick="this.select()" required>
+                </div>
                 <button type="submit">Search</button>
             </form>
         <% } %>
-        <div class="loader"></div>
         <script src="scripts/script.js"></script>
     </body>
 </html>

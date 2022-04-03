@@ -38,9 +38,7 @@ app.get('/search', async function (req, res) {
         const type = barcode ? 'barcode' : 'name'
         res.render('error', { query: req.query.q, type: type })
     } else {
-        // Determine if there are more pages.
-        const more = (data.page <= (data.count / data.page_size)) ? true : false
-        res.render('results', { query: req.query.q, products: data.products, more: more, page: data.page })
+        res.render('results', { query: req.query.q, products: data.products, page: data.page, pages: Math.ceil(data.count / data.page_size) })
     }
 })
 

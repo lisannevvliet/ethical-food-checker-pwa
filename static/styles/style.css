@@ -112,13 +112,13 @@ section a:hover {
     color: #555555;
 }
 
-form, .instructions {
+form:nth-of-type(1), .instructions {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-form {
+form:nth-of-type(1) {
     position: sticky;
     top: 0;
     width: 90vw;
@@ -126,7 +126,7 @@ form {
     z-index: 9;
 }
 
-form input {
+form:nth-of-type(1) input {
     flex-grow: 1;
     width: 37%;
     border: none;
@@ -139,7 +139,7 @@ form input {
     padding: 12px 20px 12px 40px;
 }
 
-form input:focus {
+form:nth-of-type(1) input:focus {
     outline-color: #63b776;
 }
 
@@ -158,11 +158,11 @@ form input:focus {
     transition: background 0.3s ease-in-out;
 }
 
-form button img {
+form:nth-of-type(1) button img {
     height: 25px;
 }
 
-form button[type="submit"] {
+form:nth-of-type(1) button[type="submit"] {
     position: sticky;
     color: white;
     font-weight: bold;
@@ -176,7 +176,7 @@ form button[type="submit"] {
     padding: 16px 32px;
 }
 
-form button[type="submit"]:hover {
+form:nth-of-type(1) button[type="submit"]:hover {
     background: #5aa66b;
     transition: background 0.3s ease-in-out;
 }
@@ -187,37 +187,6 @@ video {
     margin-top: 25px;
     width: 90vw;
     border-radius: 5px;
-}
-
-.sort {
-    display: flex;
-    justify-content: center;
-    width: 90vw;
-    margin: 0 auto;
-    margin-top: 5px;
-    flex-flow: row wrap;
-}
-
-.sort button {
-    color: white;
-    font-size: 1em;
-    background: #9ac383;
-    transition: background 0.3s ease-in-out;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px 13px;
-    margin: 5px;
-    white-space: nowrap;
-}
-
-.sort button:hover {
-    background: #749262;
-    transition: background 0.3s ease-in-out;
-}
-
-.sort .popularity {
-    background: #749262;
 }
 
 ul {
@@ -335,25 +304,6 @@ span {
     padding-right: 10%;
 }
 
-.more {
-    display: block;
-    margin: 0 auto;
-    color: white;
-    font-weight: bold;
-    font-family: Lato Bold, system-ui;
-    font-size: 1em;
-    background: #63b776;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 26px;
-    margin-bottom: 25px;
-}
-
-.more:hover {
-    background: #5aa66b;
-}
-
 .instructions {
     font-weight: bold;
     font-family: Lato Bold, system-ui;
@@ -361,36 +311,59 @@ span {
     margin-top: 25px;
 }
 
-.loader {
-    border: 6px solid #63b776;
-    border-radius: 50%;
-    border-top: 6px solid white;
-    width: 45px;
-    height: 45px;
-    animation: spin 2s linear infinite;
-    margin-block-start: 1em;
-    margin-inline-start: 1em;
-    display: none;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    margin-top: 25px;
+.instructions a {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+form:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+}
+
+form:nth-of-type(2) div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form:nth-of-type(2) label {
+    font-weight: bold;
+    font-family: Lato Bold, system-ui;
+    margin-bottom: 10px;
+}
+
+form:nth-of-type(2) input {
+    font-size: 1em;
+    text-align: center;
+    width: 75px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+}
+
+/* Hide arrows from number input in Chrome, Safari, Edge and Opera. */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hide arrows from number input in Firefox. */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+form:nth-of-type(2) input:focus {
+    outline-color: #63b776;
+}
+
+form:nth-of-type(2) button[type="submit"] {
+    display: none;
 }
 
 .block {
     display: block;
-}
-
-.sort button.darkgreen {
-    background: #749262;
-}
-
-.sort button.lightgreen {
-    background: #9ac383;
 }
 
 /* Laptop */
@@ -399,15 +372,11 @@ span {
         font-size: 4em;
     }
 
-    form {
+    form:nth-of-type(1) {
         width: 70vw;
     }
 
     video {
-        width: 70vw;
-    }
-
-    .sort {
         width: 70vw;
     }
 
@@ -441,7 +410,7 @@ span {
 
 /* Laptop L */
 @media only screen and (min-width: 1440px) {
-    form {
+    form:nth-of-type(1) {
         width: 50vw;
     }
 
@@ -450,10 +419,6 @@ span {
     }
 
     video {
-        width: 50vw;
-    }
-
-    .sort {
         width: 50vw;
     }
 

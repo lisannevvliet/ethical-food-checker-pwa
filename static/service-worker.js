@@ -1,3 +1,4 @@
+// / cashes index.ejs as HTML.
 const CORE_FILES = [
     '/fonts/Lato-Bold.ttf',
     '/fonts/Lato-Regular.ttf',
@@ -17,7 +18,6 @@ const CORE_FILES = [
 self.addEventListener('install', function(event) {
     event.waitUntil(
         caches.open('core-cache').then(function(cache) {
-            // '/' cashes index.ejs as HTML.
             return cache.addAll(CORE_FILES)
         })
     )
