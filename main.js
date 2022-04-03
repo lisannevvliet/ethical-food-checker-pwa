@@ -1,27 +1,27 @@
 // Import Express.
-import express from 'express'
+import express from "express"
 // Import node-fetch.
-import fetch from 'node-fetch'
+import fetch from "node-fetch"
 
 // Initialise Express.
 const app = express()
 
 // Render static files.
-app.use(express.static('static'))
+app.use(express.static("static"))
 
 // Set the view engine to EJS.
-app.set('view engine', 'ejs')
+app.set("view engine", "ejs")
 
 // Set the port for Express.
 app.listen(8080)
 
 // Listen to all GET requests on /.
-app.get('/', function (_req, res) {
-    res.render('index')
+app.get("/", function (_req, res) {
+    res.render("index")
 })
 
 // Listen to all GET requests on /search.
-app.get('/search', async function (req, res) {
+app.get("/search", async function (req, res) {
     // Boolean which shows if the search query is a barcode.
     const barcode = /^\d+$/.test(req.query.q)
 
@@ -35,14 +35,14 @@ app.get('/search', async function (req, res) {
 
     if (data.products == 0) {
         // Assign a name to the search query type.
-        const type = barcode ? 'barcode' : 'name'
-        res.render('error', { query: req.query.q, type: type })
+        const type = barcode ? "barcode" : "name"
+        res.render("error", { query: req.query.q, type: type })
     } else {
-        res.render('results', { query: req.query.q, products: data.products, page: data.page, pages: Math.ceil(data.count / data.page_size) })
+        res.render("results", { query: req.query.q, products: data.products, page: data.page, pages: Math.ceil(data.count / data.page_size) })
     }
 })
 
 // Listen to all GET requests on /offline.
-app.get('/offline', function (_req, res) {
-    res.render('offline')
+app.get("/offline", function (_req, res) {
+    res.render("offline")
 })
