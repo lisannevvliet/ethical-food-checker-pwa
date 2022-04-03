@@ -1,4 +1,4 @@
-# Progressive Web Apps
+# Ethical Food Checker PWA
 
 ## Inhoudsopgave
 - [Documentation](#documentation)
