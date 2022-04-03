@@ -4,15 +4,12 @@ const CORE_FILES = [
     '/fonts/Lato-Regular.ttf',
     '/fonts/Playlist-Script.otf',
     '/images/background.jpg',
-    '/images/barcode.png',
     '/images/placeholder.png',
     '/images/search.png',
-    '/scripts/main.js',
     '/scripts/script.js',
-    '/service-worker.js',
     '/styles/style.css',
-    '/offline',
-    '/'
+    '/',
+    '/offline'
 ]
 
 self.addEventListener('install', function(event) {
