@@ -35,13 +35,13 @@ self.addEventListener("fetch", function(event) {
             caches.open("core-cache")
                 .then(cache => cache.match(event.request.url))
         )
-    // Only request the HTML file, all the other files are already in the cache.
+    // Only request the HTML, all the other files are already in the cache.
     } else if (event.request.method === "GET" && (event.request.headers.get("accept") !== null && event.request.headers.get("accept").includes("text/html"))) {
         event.respondWith(
             // Stale-while-revalidate (see https://web.dev/offline-cookbook/#stale-while-revalidate).
             caches.open("dynamic-cache").then(function(cache) {
                 return cache.match(event.request)
-                    // Retrieve, cache and serve the HTML file.
+                    // Retrieve, cache and serve the HTML.
                     .then(function(response) {
                         var fetchPromise = fetch(event.request).then(function(networkResponse) {
                             cache.put(event.request, networkResponse.clone())
