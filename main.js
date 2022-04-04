@@ -12,8 +12,8 @@ app.use(express.static("static"))
 // Set the view engine to EJS.
 app.set("view engine", "ejs")
 
-// Set the port for Express.
-app.listen(8080)
+// Set and log the port for Express.
+app.listen(8080, () => { console.log("Express running at http://localhost:8080/.") })
 
 // Listen to all GET requests on /.
 app.get("/", function (_req, res) {
