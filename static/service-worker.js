@@ -15,6 +15,8 @@ const CORE_FILES = [
 self.addEventListener("install", function(event) {
     event.waitUntil(
         caches.open("core-cache").then(function(cache) {
+            // Ensure that any new versions of the service worker will take over the page and become activated immediately.
+            self.skipWaiting()
             return cache.addAll(CORE_FILES)
         })
     )
