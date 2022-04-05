@@ -1,16 +1,19 @@
 @font-face {
     font-family: "Playlist Script";
     src: url("../fonts/Playlist-Script.otf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Lato Regular";
     src: url("../fonts/Lato-Regular.ttf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: "Lato Bold";
     src: url("../fonts/Lato-Bold.ttf");
+    font-display: swap;
 }
 
 * {
@@ -149,7 +152,6 @@ form:nth-of-type(1) button img {
 
 form:nth-of-type(1) button[type="submit"] {
     position: sticky;
-    color: white;
     font-weight: bold;
     font-family: Lato Bold, system-ui;
     font-size: 1em;
