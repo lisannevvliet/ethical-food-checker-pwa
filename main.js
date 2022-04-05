@@ -2,9 +2,27 @@
 import express from "express"
 // Import node-fetch.
 import fetch from "node-fetch"
+// Import compression.
+import compression from "compression"
 
 // Initialise Express.
 const app = express()
+
+// Disable ETags to change the HTTP response status codes.
+// app.disable("etag")
+
+// Compress all responses.
+app.use(compression())
+
+// Cache non-HTML GET requests for 1 year (see https://ashton.codes/set-cache-control-max-age-1-year/).
+app.use(function(req, res, next) {
+    if (req.method == "GET" && !(req.rawHeaders.toString().includes("text/html"))) {
+        res.set("Cache-control", "public, max-age=31536000")
+    }
+
+    // Pass on the request.
+    next()
+})
 
 // Render static files.
 app.use(express.static("static"))
