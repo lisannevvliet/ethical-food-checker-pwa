@@ -1,5 +1,7 @@
+// Change this variable to reregister the service worker (a.k.a. revisioning).
+const version = 1
 // Cache all static files, as well as the index.ejs and offline.ejs file.
-const CORE_FILES = [
+const files = [
     "/fonts/Lato-Bold.ttf",
     "/fonts/Lato-Regular.ttf",
     "/fonts/Playlist-Script.otf",
@@ -18,7 +20,7 @@ self.addEventListener("install", function(event) {
         caches.open("core-cache").then(function(cache) {
             // Ensure that any new versions of the service worker will take over the page and become activated immediately.
             self.skipWaiting()
-            return cache.addAll(CORE_FILES)
+            return cache.addAll(files)
         })
     )
 })
@@ -30,7 +32,7 @@ self.addEventListener("activate", function(_event) { })
 self.addEventListener("fetch", function(event) {
     const url = new URL(event.request.url)
     // Check if any of the requested files already exists in the core-cache and serve them.
-    if (event.request.method === "GET" && CORE_FILES.includes(url.pathname)) {
+    if (event.request.method === "GET" && files.includes(url.pathname)) {
         event.respondWith(
             caches.open("core-cache")
                 .then(cache => cache.match(event.request.url))
