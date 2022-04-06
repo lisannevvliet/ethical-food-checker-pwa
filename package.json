@@ -9,8 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon main.js",
     "build": "npm-run-all build:*",
-    "build:css": "cleancss -o static/styles/style.css source/styles/style.css",
-    "build:js": "node-minify --compressor uglify-js --input 'source/scripts/script.js' --output 'static/scripts/script.js'"
+    "build:styles": "node-minify --compressor terser --input \"source/scripts/script.js\" --output \"static/scripts/script.js\"",
+    "build:scripts": "node-minify --compressor clean-css --input \"source/styles/style.css\" --output \"static/styles/style.css\""
   },
   "author": "",
   "license": "ISC",
@@ -20,19 +20,19 @@
     "node-fetch": "^3.2.3"
   },
   "devDependencies": {
+    "@node-minify/clean-css": "^6.2.0",
     "@node-minify/cli": "^6.2.0",
-    "@node-minify/uglify-js": "^6.2.0",
-    "clean-css-cli": "^5.6.0",
+    "@node-minify/terser": "^6.2.0",
     "compression": "^1.7.4",
     "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lisannevvliet/progressive-web-apps-2122.git"
+    "url": "git+https://github.com/lisannevvliet/ethical-food-checker-pwa.git"
   },
   "bugs": {
-    "url": "https://github.com/lisannevvliet/progressive-web-apps-2122/issues"
+    "url": "https://github.com/lisannevvliet/ethical-food-checker-pwa/issues"
   },
-  "homepage": "https://github.com/lisannevvliet/progressive-web-apps-2122#readme"
+  "homepage": "https://github.com/lisannevvliet/ethical-food-checker-pwa#readme"
 }
