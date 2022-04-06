@@ -33,7 +33,7 @@ app.use(express.static("static"))
 app.set("view engine", "ejs")
 
 // Set and log the port for Express.
-app.listen(process.env.PORT, () => { console.log(`Express running at ${process.env.PORT}.`) })
+app.listen(process.env.PORT, () => { console.log(`Express running at http://localhost:${process.env.PORT}.`) })
 
 // Listen to all GET requests on /.
 app.get("/", function (_req, res) {
