@@ -1,3 +1,5 @@
+// Import Dotenv.
+import 'dotenv/config'
 // Import Express.
 import express from "express"
 // Import node-fetch.
@@ -31,7 +33,7 @@ app.use(express.static("static"))
 app.set("view engine", "ejs")
 
 // Set and log the port for Express.
-app.listen(8080, () => { console.log("Express running at http://localhost:8080/.") })
+app.listen(process.env.PORT, () => { console.log(`Express running at ${process.env.PORT}.`) })
 
 // Listen to all GET requests on /.
 app.get("/", function (_req, res) {
