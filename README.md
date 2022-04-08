@@ -6,7 +6,7 @@
 - [Installation](#installation)
 - [Features](#features)
 - [Activity diagram](#activity-diagram)
-- [Client-server rendering](https://github.com/lisannevvliet/ethical-food-checker-pwa#client-server-rendering)
+- [Client-server rendering](#client-server-rendering)
 - [External API](#external-api)
 - [Enhancements](#enhancements)
 
