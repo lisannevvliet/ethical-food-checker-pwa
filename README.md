@@ -9,7 +9,6 @@
 - [Activity diagram](#activity-diagram)
 - [Client- server rendering](#client-server-rendering)
 - [Data life cycle](#data-life-cycle)
-- [Real-time events](#real-time-events)
 - [External API](#external-api)
 - [Enhancements](#enhancements)
 
@@ -37,9 +36,6 @@ To view, visit the [Heroku app](https://ethical-food-checker-pwa.herokuapp.com/)
 ## Data life cycle
 *Maak een sectie aan over de data life cycle.*
 
-## Real-time events
-*Maak een sectie aan over real-time events.*
-
 ## External API
 The external API that is featured in this project is the [Open Food Facts API](https://openfoodfacts.github.io/api-documentation/). From this API, the following properties are used:
 - code (for barcodes)
@@ -53,3 +49,15 @@ The external API that is featured in this project is the [Open Food Facts API](h
 
 ## Enhancements
 *A list of enhancements to optimize the critical render path implemented your app.*
+- [x] Automatically minified CSS and JavaScript on npm start.
+- [x] Set HTTP header field Cache-control to cache non-HTML GET requests for 1 year.
+- [x] Added revisioning to service worker by storing the version number in a variable.
+- [x] Implemented compression using the corresponding Node.js module.
+- [x] Wrote as little client-side JavaScript as possible.
+- [x] Added font-display: swap to imported fonts in CSS.
+- [x] Verified that API images are not unnecessary big.
+- [x] Compressed background.jpg from 2 MB to 197 kB.
+- [x] Changed text in button from white to black to improve accessibility.
+- [x] Added language tag to HTML to improve accessibility.
+- [x] Added description meta tag to HTML to improve SEO.
+- [x] Removed unused images.
