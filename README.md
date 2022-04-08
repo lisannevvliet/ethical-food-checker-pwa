@@ -20,17 +20,18 @@ The Ethical Food Checker is designed to help consumers make more responsible cho
 To view, visit the [Heroku app](https://ethical-food-checker-pwa.herokuapp.com/). To make local modifications, clone the repository and edit the files in an IDE.
 
 ## Features
-*Maak ook een visuele lijst van alle features die je app heeft (Search, pagination, etc.) Hier mag je een beetje flexen. Zet hierbij welke data wordt opgehaald, opgeslagen of wordt verwerkt.*
-- Search on product name or barcode
-- Pagination
-- Caching of homepage and visited pages
-- Offline page
+- Search on product name or barcode (products fetched from API).
+- Show names, pictures and ingredients of matching products (products rendered by EJS).
+- Show whether products are vegetarian or vegan, if they contain palm oil, and what their Eco-Score is (products rendered by EJS).
+- Explanation with additional information on the above.
+- Pagination (products fetched from API).
+- Caching of homepage and visited pages.
+- Offline page.
 
 ## Activity diagram
 ![](https://user-images.githubusercontent.com/90243819/162438077-004f0a50-541e-426d-ab24-b06601460aa4.jpg)
 
 ## Client-server rendering
-*An explanation of client- server rendering.*
 Instead of fetching the products in the client-side JavaScript, the API call is being made server-side, using the node-fetch Node.js module. If the API returns products, load results.ejs and pass through the search query, received products, page and amount of pages in total. These parameters are then used in the HTML. If the API does not return products, load error.ejs and pass through the search query and type (name or barcode). The client-side JavaScript only consists of the service worker and the functionality of the "Explanation" button. If the service worker is installed and the user has no internet, offline.ejs is displayed and the search query is filled-in with client-side JavaScript.
 
 ## External API
