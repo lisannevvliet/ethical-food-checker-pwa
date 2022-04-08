@@ -1,24 +1,27 @@
 # Ethical Food Checker PWA
 
-## Inhoudsopgave
-- [Documentation](#documentation)
-  * [Exercise 1-1](#exercise-1-1)
-  * [Exercise 1-2](#exercise-1-2)
+## Table of contents
+- [Live demo](#live-demo)
+- [Product description](#product-description)
+- [Install notes](#install-notes)
+- [External API](#external-api)
 
-## Documentation
+## Live demo
+https://ethical-food-checker-pwa.herokuapp.com/
 
-### Exercise 1-1
-- Install Node.js and NPM via macOS installer (https://nodejs.org/en/download).
-- Create server.js (https://www.section.io/engineering-education/static-site-dynamic-nodejs-web-app/).
-- Clone the GitHub repository.
-- Navigate to destination folder (cd /Users/lisannevanvliet/Documents/HvA/Jaar\ 3/Semester\ 2/Progressive\ Web\ Apps).
-- Configure package.json (npm init).
-- Install Express (npm install express).
-- Start the local server: http://localhost:8080/index.html (npm start).
+## Product description
+The Ethical Food Checker is designed to help consumers make more responsible choices in the supermarket. By typing in the name or barcode of a product, the user can find out in less than a minute whether the product is vegetarian or vegan, if it contains palm oil, and what its Eco-Score is. The website uses the Open Food Facts API and shows worldwide products, to ensure that the user finds the right product.
 
-### Exercise 1-2
-- Install Nodemon (https://www.digitalocean.com/community/tutorials/workflow-nodemon).
-- Change "start": "node server.js" to "start": "nodemon server.js" in package.json.
-- Install EJS (npm install ejs --save).
-- Update package.json and rename the HTML files to EJS.
-- Install and implement node-fetch (npm install node-fetch).
+## Install notes
+To view, visit the [Heroku app](https://ethical-food-checker-pwa.herokuapp.com/). To make local modifications, clone the repository and edit the files in an IDE.
+
+## External API
+The external API that is featured in this project is the [Open Food Facts API](https://openfoodfacts.github.io/api-documentation/). From this API, the following properties are used:
+- code (for barcodes)
+- search_terms (for product names)
+- page
+- product_name
+- image_small_url
+- ingredients_text
+- ingredients_analysis_tags (for vegetarian, vegan and palm oil information)
+- ecoscore_grade
