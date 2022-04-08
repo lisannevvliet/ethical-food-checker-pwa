@@ -59,6 +59,6 @@ The external API that is featured in this project is the [Open Food Facts API](h
 - [x] Added description meta tag to HTML to improve SEO.
 - [x] Removed unused images, CSS and JavaScript.
 
-[Lighthouse report beforehand](https://github.com/lisannevvliet/ethical-food-checker-pwa/files/8452325/Before.summary.pdf)
+[Lighthouse report beforehand.pdf](https://github.com/lisannevvliet/ethical-food-checker-pwa/files/8452366/Lighthouse.report.beforehand.pdf)
 
-[Lighthouse report afterwards](https://github.com/lisannevvliet/ethical-food-checker-pwa/files/8452326/After.summary.pdf)
+[Lighthouse report afterwards.pdf](https://github.com/lisannevvliet/ethical-food-checker-pwa/files/8452368/Lighthouse.report.afterwards.pdf)
