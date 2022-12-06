@@ -11,13 +11,13 @@
 - [Enhancements](#enhancements)
 
 ## Live demo
-https://ethical-food-checker-pwa.herokuapp.com/
+https://ethical-food-checker.onrender.com
 
 ## Description and concept
 The Ethical Food Checker is designed to help consumers make more responsible choices in the supermarket. By typing in the name or barcode of a product, the user can find out in less than a minute whether the product is vegetarian or vegan, if it contains palm oil, and what its Eco-Score is. The website uses the Open Food Facts API and shows worldwide products, to ensure that the user finds the right product.
 
 ## Installation
-To view, visit the [Heroku app](https://ethical-food-checker-pwa.herokuapp.com/). To make local modifications, clone the repository and edit the files in an IDE.
+To view, visit the [website](https://ethical-food-checker.onrender.com). To make local modifications, clone the repository and edit the files in an IDE.
 
 ## Features
 - Search on product name or barcode (products fetched from API).
