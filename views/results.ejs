@@ -31,7 +31,7 @@
                             <p><%- emojis %>
                             <!-- If the Eco-Score is known, add the corresponding image. -->
                             <% if (product.ecoscore_grade && product.ecoscore_grade != "unknown") { %>
-                                <div id="tooltip"><img src="https://static.openfoodfacts.org/images/icons/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
+                                <div id="tooltip"><img src="https://static.openfoodfacts.org/images/attributes/dist/ecoscore-<%= product.ecoscore_grade %>.svg" alt="Eco-Score: <%= product.ecoscore_grade.toUpperCase() %>" id="ecoscore"><span>Eco-Score</span></div></p><span>
                             <% } %></p><span>
                             <!-- Add the ingredients if there are any. -->
                             <% if (product.ingredients_text) { %>
